@@ -33,7 +33,7 @@ import {DifferenceWidthPipe} from '@core/pipe/difference-width.pipe';
   ]
 })
 export class PipesModule {
-  static forRoot() {
+  static forRoot(): any {
     return {
       ngModule: PipesModule,
       providers: [],
