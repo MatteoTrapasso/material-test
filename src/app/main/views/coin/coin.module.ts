@@ -17,6 +17,7 @@ import {ButtonEditManyTestCoinComponent} from './components/button-edit-many-tes
 import {ButtonCreateManyTestCoinComponent} from './components/button-create-many-test-coin.component';
 import {NgLetModule} from '@core/directive/ng-let.directive';
 import {ToolbarModule} from 'primeng/toolbar';
+import {JsonFormPipe} from "../../../core/pipe/json-form.pipe";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {ToolbarModule} from 'primeng/toolbar';
     ButtonNewCoinComponent,
     ButtonDeleteCoinComponent,
     ButtonEditManyTestCoinComponent,
-    ButtonCreateManyTestCoinComponent
+    ButtonCreateManyTestCoinComponent,
+    JsonFormPipe
   ],
   imports: [
     CommonModule,
