@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import * as actions from './actions';
-import {switchMap, tap} from 'rxjs/operators';
+import {map, switchMap, tap} from 'rxjs/operators';
 import {AuthenticationService} from './authentication.service';
 import {combineLatest, of} from 'rxjs';
 import {RouterGo} from '@root-store/router-store/actions';
 import {afterLogoutUri} from './conf';
+import {MealStoreActions} from "@root-store/meal-store/index";
 
 @Injectable()
 export class AuthStoreEffects {
@@ -54,6 +55,14 @@ export class AuthStoreEffects {
       ofType(actions.GoToLogin),
       switchMap(() => [RouterGo({path: [afterLogoutUri]})])
     )
+  );
+
+  loginResult$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(actions.LoginResult),
+        switchMap(() => [ MealStoreActions.SearchRequest({queryParams: {}})])
+      ),
   );
 
 }

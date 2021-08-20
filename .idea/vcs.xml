@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Angular_ngrx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/accademiadev-rxjs-masterclass" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/corso-angular-ngrx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ngrx-aigor" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ngrx-entity-crud" vcs="Git" />
+  </component>
+</project>

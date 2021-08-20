@@ -1,0 +1,124 @@
+<p-dialog header="{{title}}"
+          [transitionOptions]="'150ms cubic-bezier(0, 0, 0.2, 1)'"
+          [visible]="true"
+          [modal]="true"
+          [responsive]="true"
+          [style]="{maxWidth:'350px', minWidth: '350px'}"
+          [minY]="70"
+          [maximizable]="false"
+          [closable]="false"
+          (onHide)="cancel()"
+
+>
+
+  <div class="p-grid">
+    <div class="p-col">
+      <div style="     background-color: #2A323D;
+                       position:fixed;
+                       top:0;
+                       width:94%;
+                       height: 30%;
+                       z-index:100;
+                       margin-top: 10px;
+                       ">
+        <p-chart type="doughnut" [options]="chartOptions" [data]="data$|async"></p-chart>
+      </div>
+      <div style="margin-top:45%">
+        <div align="center" style="margin-top: 10px">
+         <strong> <pre style="margin-top: 160px;">{{kcal.toFixed(2)}} Kcal</pre> </strong>
+        </div>
+        <form
+          class="dynamic-form"
+          [formGroup]="form">
+
+          <div class="card" style="margin-top: 10px;">
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col-12 p-md-6" style=" margin-left: 10px">
+                <label><strong>type</strong></label><br>
+                <p-dropdown inputId="type" [options]="types" placeholder="Select"
+                            [formControl]="type"></p-dropdown>
+              </div>
+              <div class="p-field p-col-12 p-md-6" style=" margin-left: 10px">
+                <label><strong>time</strong></label><br>
+                <input type="time" id="time" name="time"
+                       style="height: 40px;
+                    background: #20262e;
+                    border: 1px solid #3f4b5b;
+                    transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+                    border-radius: 4px;
+                    font-size: 1rem;
+                    font-weight: normal;
+                    color: rgba(255, 255, 255, 0.87);
+                    " [formControl]="time" required>
+              </div>
+
+
+              <div class="p-grid" style="display: none;">
+                <div class="p-col">
+                  <label for="date"><strong>date</strong></label><br>
+                  <input id="date" name="date" class="form-control" pInputText [formControl]="date"/>
+                </div>
+              </div>
+
+              <ng-container formArrayName="menu">
+                <ng-container *ngFor="let foodForm of menu.controls; let i = index">
+                  <div class="p-d-flex" [formGroup]="foodForm">
+                    <div class="p-mr-2" style="margin: 5%">
+                      <label><strong>Food</strong></label><br>
+                      <p-autoComplete [suggestions]="options"
+                                      size="20"
+                                      (completeMethod)="filterMethod($event)" field="Food_Name_ITA"
+                                      [dropdown]="true"
+                                      style="width: 50% !important;"
+                                      formControlName="food">
+                        <ng-template let-item pTemplate="item">
+                          <div class="food-item">
+                            <div>{{item.Food_Name_ITA}}</div>
+                          </div>
+                        </ng-template>
+                        <ng-template let-item pTemplate="selectedItem">
+                          <span style="font-size:18px">{{item.Food_Name_ITA}}</span>
+                        </ng-template>
+                      </p-autoComplete>
+                    </div>
+                    <div class="p-mr-2" style="margin-top: 5%; width: 40%;">
+                      <label><strong>qty (g)</strong></label><br>
+                      <p-inputNumber mode="decimal" [showButtons]="true" [min]="0"
+                                     [size]="2" [step]="25"
+                                     formControlName="qty">
+                      </p-inputNumber>
+                    </div>
+                    <div style="margin-top: 5%">
+                      <label><strong> </strong></label><br>
+                      <button pButton pRipple type="button" icon="pi pi-times"
+                              class="p-button-rounded p-button-danger p-button-outlined" pTooltip="delete"
+                              tooltipPosition="top" (click)="deleteFood(i)"
+                      ></button>
+                    </div>
+                  </div>
+
+
+                </ng-container>
+              </ng-container>
+            </div>
+          </div>
+
+          <div style="margin: 2%">
+
+            <button type="button" pButton icon="pi pi-plus"
+                    label="Add Food"
+                    class="p-button-success p-ml-auto"
+                    (click)="addMenu()"></button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <button pButton class="p-button-success mr-1" label="save" (click)="submit(form.getRawValue())" [disabled]="form.invalid"></button>
+    <button pButton type="button" label="Cancel" (click)="cancel()"></button>
+  </ng-template>
+
+</p-dialog>

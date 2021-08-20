@@ -1,0 +1,53 @@
+<div align="center" *ngLet="user$ | async as user">
+  <p-card header="{{user.currentUser.nickname}}" [style]="{'margin-bottom': '2em'}">
+    <ng-template pTemplate="header">
+      <img style="border-radius: 50%; width: 20%" alt="User" src="{{user.currentUser.picture}}">
+    </ng-template>
+    <ng-template pTemplate="body">
+    <table id="user" style="width: 100%">
+      <tr>
+        <td><strong>email</strong></td>
+        <td><i class="pi pi-envelope"></i></td>
+        <td>
+          <pre>{{user.currentUser.email}}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>birth date</strong></td>
+        <td><i class="pi pi-calendar"></i></td>
+        <td>
+          <pre>{{user.lastItem.bDate}}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>gender</strong></td>
+        <td><i class="pi pi-user"></i></td>
+        <td>
+          <pre>{{user.lastItem.gender}}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>height</strong></td>
+        <td><i class="pi pi-chart-bar"></i></td>
+        <td>
+          <pre>{{user.lastItem.height}} cm</pre>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>weight</strong></td>
+        <td><i class="pi pi-chart-bar"></i></td>
+        <td>
+          <pre>{{user.lastItem.weight}} kg</pre>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>last check date</strong>
+        <td><i class="pi pi-calendar"></i></td>
+        <td>
+          <pre>{{user.lastItem.date}}</pre>
+        </td>
+      </tr>
+    </table>
+    </ng-template>
+  </p-card>
+</div>

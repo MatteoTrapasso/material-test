@@ -46,23 +46,37 @@
             "main": "apps/fe/src/main.ts",
             "polyfills": "apps/fe/src/polyfills.ts",
             "tsConfig": "apps/fe/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": ["apps/fe/src/favicon.ico", "apps/fe/src/assets"],
-            "styles": ["apps/fe/src/styles.scss"],
-            "scripts": []
+            "assets": [
+              "apps/fe/src/favicon.ico",
+              "apps/fe/src/assets"
+            ],
+            "styles": [
+              "apps/fe/src/styles.scss",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/primeng/resources/themes/bootstrap4-dark-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "apps/fe/src/css/layout.scss",
+              "apps/fe/src/css/sizing.css",
+              "apps/fe/src/css/text.css",
+              "apps/fe/src/css/text-align.css",
+              "apps/fe/src/css/validator.css"
+            ],
+            "scripts": [ "node_modules/chart.js/dist/Chart.js"]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ],
               "fileReplacements": [
@@ -74,18 +88,22 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "fe:build"
+          },
           "configurations": {
             "production": {
               "browserTarget": "fe:build:production"
@@ -105,12 +123,17 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/fe/src/**/*.ts", "apps/fe/src/**/*.html"]
+            "lintFilePatterns": [
+              "apps/fe/src/**/*.ts",
+              "apps/fe/src/**/*.html"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/fe"],
+          "outputs": [
+            "coverage/apps/fe"
+          ],
           "options": {
             "jestConfig": "apps/fe/jest.config.js",
             "passWithNoTests": true
@@ -139,7 +162,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/fe-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/fe-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -151,12 +176,16 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/be",
             "main": "apps/be/src/main.ts",
             "tsConfig": "apps/be/tsconfig.app.json",
-            "assets": ["apps/be/src/assets"]
+            "assets": [
+              "apps/be/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -181,12 +210,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/be/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/be/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/be"],
+          "outputs": [
+            "coverage/apps/be"
+          ],
           "options": {
             "jestConfig": "apps/be/jest.config.js",
             "passWithNoTests": true

@@ -19,17 +19,21 @@ import {NgLetModule} from '@core/directive/ng-let.directive';
 import {ToolbarModule} from 'primeng/toolbar';
 import {ChartModule} from 'primeng/chart';
 import {TooltipModule} from 'primeng/tooltip';
+import {SelectButtonModule} from "primeng/selectbutton";
+import {MetabolicValueComponent} from "@views/body-data/components/metabolic-value";
+import {MealModule} from "@views/meal/meal.module";
 
 @NgModule({
-  declarations: [
-    BodyDataEditComponent,
-    BodyDataMainComponent,
-    BodyDataListComponent,
-    ButtonNewBodyDataComponent,
-    ButtonDeleteBodyDataComponent,
-    ButtonEditManyTestBodyDataComponent,
-    ButtonCreateManyTestBodyDataComponent
-  ],
+    declarations: [
+        BodyDataEditComponent,
+        BodyDataMainComponent,
+        BodyDataListComponent,
+        ButtonNewBodyDataComponent,
+        ButtonDeleteBodyDataComponent,
+        ButtonEditManyTestBodyDataComponent,
+        ButtonCreateManyTestBodyDataComponent,
+        MetabolicValueComponent
+    ],
     imports: [
         CommonModule,
         FormsModule,
@@ -44,7 +48,9 @@ import {TooltipModule} from 'primeng/tooltip';
         NgLetModule,
         ToolbarModule,
         ChartModule,
-        TooltipModule
+        TooltipModule,
+        SelectButtonModule,
+        MealModule
     ],
   providers: [],
   entryComponents: []

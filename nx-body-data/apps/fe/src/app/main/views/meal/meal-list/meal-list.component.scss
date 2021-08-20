@@ -1,0 +1,70 @@
+:host ::ng-deep {
+  .p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  :host ::ng-deep {
+    .p-datatable {
+      &.p-datatable-responsive-demo {
+        .p-datatable-thead > tr > th,
+        .p-datatable-tfoot > tr > td {
+          display: none !important;
+        }
+
+        .p-datatable-tbody > tr > td {
+          text-align: left;
+          display: block;
+          width: 100%;
+          float: left;
+          clear: left;
+          border: 0 none;
+
+          .p-column-title {
+            padding: .4rem;
+            min-width: 30%;
+            display: inline-block;
+            margin: -.4em 1em -.4em -.4rem;
+            font-weight: bold;
+          }
+
+          &:last-child {
+            border-bottom: 1px solid var(--surface-d);
+          }
+        }
+      }
+    }
+  }
+}
+
+.data{
+  text-align: center;
+  line-height: 70px;
+  color: #e9ecef;
+  font-weight: bold;
+  border-radius: 2%;
+  height: 10px;
+  align-items: center;
+}
+
+.fat{
+  background-color: #FBC02D;
+}
+
+.protein{
+  background-color: #689F38;
+}
+
+.carbohydrates{
+  background-color: #D32F2F;
+}
+
+.button{
+  width: 160px;
+}
+.details{
+  width: 10%;
+  color: #e9ecef;
+  font-weight: bold;
+}

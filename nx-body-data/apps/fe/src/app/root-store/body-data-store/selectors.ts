@@ -1,7 +1,8 @@
-import {createFeatureSelector, MemoizedSelector} from '@ngrx/store';
+import {createFeatureSelector, createSelector, MemoizedSelector} from '@ngrx/store';
 
 import {adapter, State} from './state';
 import {Names} from './names';
+import {BodyData} from "@models/vo/body-data";
 
 export const selectState: MemoizedSelector<object, State> = createFeatureSelector<State>(Names.NAME);
 export const {
@@ -21,3 +22,8 @@ export const {
   selectIdsSelected,
   selectResponses,
 } = adapter.getCrudSelectors(selectState);
+
+export const selectLastItem = createSelector(
+  selectAll,
+  (values) => values.length ? values[values.length - 1] : new BodyData()
+)

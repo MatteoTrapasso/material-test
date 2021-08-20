@@ -40,5 +40,71 @@
 - [ x ] eliminare scritta 'actions' in list
 - [ x ] inserire unità di misura in form e list
 - [ x ] add tooltipe
-- [   ] creare api per deleteAll, updateMany, insertMany
-- [   ] unificare repositories
+- [ x ] unificare repositories
+- [ x ] creare sezione 'eat' + store + api
+- [ x ] grafico calorie giornaliere
+- [ x ] creare sezione utente + store + api
+- [ x ] fix tasto edit (ora duplica!), non passa _id dal form
+- [ x ] inserire campi, gender e data di nascita all'inseriemento del bmi
+- [ x ] eliminare name da signup auth0
+- [ x ] inserire immagine con currrentUser.picture
+- [ x ] aggiornare user con ultimo salvataggio bmi (permettere modifica da user?)
+- [ x ] sostituire name con user.nickname
+- [ x ] fix button position in eat page
+- [ x ] aggiungere calcolo metabolismo basale (harris and benedict) (funzione già scritta in body-data-main)
+  - servono età e sesso [RECUPERATI]
+    Femmine: 655,095 + (9,563 x peso in kg) + (1,8496 x altezza in cm) – (età x 4,6756)
+    Maschi: 66,473 + (13,7516 x peso in kg) + (5,0033 x altezza in cm) – (età x 6,755)
+- [ x ] rendere sezione user come Card
+- [ x ] aggiornare metabolic (alla prima chiamata è vuoto e nonn si aggiorna dopo inserimento nuovo bmi)
+- [ x ] inserire valori userData nella tabella (anche img)
+- [ x ] cambiare icona metabolismo
+- [ x ] selectLastItem prende il primo elemento, non l'ultimo
+- [ x ] problema campi undefined user!!
+- [ x ] autocomplete height, gender, bDate in bmi dal secondo inserimento in poi
+- [ x ] nascondere gender, bDate e name?
+- [ x ] rendere tabella user e home per mobile
+  ---------------------------------------------------VERSIONE 3.0------------------------------------------------------------------------
+- [ x ] format date
+- [ x ] nuova pagina eat-detail
+- [ x ] componente con pulsanti per navigare tra i giorni
+- [ x ] componente meal (barra con diversi colori per le percentuali, pulsanti edit e delete)
+- [ x ] componente edit meal (grafico percentuali valori principali) + form inserimento piatti + qty
+- [ x ] lista food
+- [ x ] be meal (food, qty)
+- [ x ] be food (manca inserire i campi corretti)
+- [ x ] allineare addFood button e select food
+- [ x ] addList elementi selezionati
+- [ x ] delete eat
+- [ x ] delete element selected foods
+- [ x ] fix meal view for mobile
+- [ x ] ArrayForm for meal
+- [ x ] delete from select food list
+- [ x ] fix error overflow-x: auto
+- [ x ] fix be for meal (foods = array of Food + qty)
+- [ x ] save meal
+- [ x ] selector meal store, selezionare meal con quella data
+- [ x ] inserire data corrente in edit new meal
+- [ x ] fix modify, non apre popup
+- [ x ] caricare dati con modify
+- [ x ] save modify non funziona
+- [ x ] invalid time error on modify (nel modify il time arriva come Date, capire che formato accetta)
+- [ x ] calcolare totale valori singoli Meal
+- [ x ] riempire grafico Meal Edit
+- [ x ] view Kcal Totali in edit
+- [ x ] componente custom per elementi lista meal
+- [ x ] disabilitare save se form non completo meal
+- [ x ] disabilitare save se form non completo bodyData
+- [ x ] dimensione new edit empty
+- [ x ] controllare dimensione autocomplete food in edit
+- [ x ] calcolare valori grafico single meal
+- [ x ] solo due cifre decimali Kcal
+- [ x ] in single meal espandere nome alimento per dettagli
+- [ x ] fix single meal mobile size (ingrandire input qty)
+- [   ] riempire grafico mealDaily
+  ---------------------------------------------------VERSIONE 4.0------------------------------------------------------------------------
+
+- [   ] convert app to android app 
+- [   ] add in store android
+- [   ] add ads
+- [   ] profilo amministratore per monitorare utenti
