@@ -24,7 +24,9 @@
     "@ngrx/store": "^12.4.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.11.3"
+    "zone.js": "~0.11.3",
+    "apollo-angular": "^2.6.0",
+    "@apollo/client": "^3.4.8"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1101.4",
@@ -52,8 +54,6 @@
     "@graphql-codegen/typescript-operations": "2.1.2",
     "@graphql-codegen/typescript": "2.1.2",
     "@graphql-codegen/typescript-apollo-angular": "3.1.2",
-    "@graphql-codegen/introspection": "2.1.0",
-    "apollo-angular": "^2.6.0",
-    "@apollo/client": "^3.4.8"
+    "@graphql-codegen/introspection": "2.1.0"
   }
 }

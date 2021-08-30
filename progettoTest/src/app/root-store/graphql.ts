@@ -18,6 +18,26 @@ export type Scalars = {
 
 
 
+export type Coin = {
+  __typename?: 'Coin';
+  id: Scalars['ID'];
+  name: Scalars['String'];
+};
+
+export type CoinFilter = {
+  q?: Maybe<Scalars['String']>;
+  ids?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  id?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+  id_neq?: Maybe<Scalars['ID']>;
+  name_neq?: Maybe<Scalars['String']>;
+};
+
+export type CoinInput = {
+  id: Scalars['ID'];
+  name: Scalars['String'];
+};
+
 export type Comment = {
   __typename?: 'Comment';
   id: Scalars['ID'];
@@ -67,6 +87,10 @@ export type Mutation = {
   createManyUser?: Maybe<Array<Maybe<User>>>;
   updateUser?: Maybe<User>;
   removeUser?: Maybe<User>;
+  createCoin?: Maybe<Coin>;
+  createManyCoin?: Maybe<Array<Maybe<Coin>>>;
+  updateCoin?: Maybe<Coin>;
+  removeCoin?: Maybe<Coin>;
   createComment?: Maybe<Comment>;
   createManyComment?: Maybe<Array<Maybe<Comment>>>;
   updateComment?: Maybe<Comment>;
@@ -116,6 +140,27 @@ export type MutationUpdateUserArgs = {
 
 
 export type MutationRemoveUserArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type MutationCreateCoinArgs = {
+  name: Scalars['String'];
+};
+
+
+export type MutationCreateManyCoinArgs = {
+  data?: Maybe<Array<Maybe<CoinInput>>>;
+};
+
+
+export type MutationUpdateCoinArgs = {
+  id: Scalars['ID'];
+  name?: Maybe<Scalars['String']>;
+};
+
+
+export type MutationRemoveCoinArgs = {
   id: Scalars['ID'];
 };
 
@@ -186,6 +231,9 @@ export type Query = {
   User?: Maybe<User>;
   allUsers?: Maybe<Array<Maybe<User>>>;
   _allUsersMeta?: Maybe<ListMetadata>;
+  Coin?: Maybe<Coin>;
+  allCoins?: Maybe<Array<Maybe<Coin>>>;
+  _allCoinsMeta?: Maybe<ListMetadata>;
   Comment?: Maybe<Comment>;
   allComments?: Maybe<Array<Maybe<Comment>>>;
   _allCommentsMeta?: Maybe<ListMetadata>;
@@ -234,6 +282,27 @@ export type Query_AllUsersMetaArgs = {
 };
 
 
+export type QueryCoinArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type QueryAllCoinsArgs = {
+  page?: Maybe<Scalars['Int']>;
+  perPage?: Maybe<Scalars['Int']>;
+  sortField?: Maybe<Scalars['String']>;
+  sortOrder?: Maybe<Scalars['String']>;
+  filter?: Maybe<CoinFilter>;
+};
+
+
+export type Query_AllCoinsMetaArgs = {
+  page?: Maybe<Scalars['Int']>;
+  perPage?: Maybe<Scalars['Int']>;
+  filter?: Maybe<CoinFilter>;
+};
+
+
 export type QueryCommentArgs = {
   id: Scalars['ID'];
 };
@@ -275,25 +344,44 @@ export type UserInput = {
   name: Scalars['String'];
 };
 
-export type AllpostQueryVariables = Exact<{ [key: string]: never; }>;
+export type FieldsBaseFragment = { __typename?: 'Coin', name: string, id: string };
+
+export type CoinSearchQueryVariables = Exact<{
+  page?: Maybe<Scalars['Int']>;
+  perPage?: Maybe<Scalars['Int']>;
+  sortField?: Maybe<Scalars['String']>;
+  sortOrder?: Maybe<Scalars['String']>;
+  filter?: Maybe<CoinFilter>;
+}>;
 
 
-export type AllpostQuery = { __typename?: 'Query', allPosts?: Maybe<Array<Maybe<{ __typename?: 'Post', title: string, views: number }>>> };
+export type CoinSearchQuery = { __typename?: 'Query', allCoins?: Maybe<Array<Maybe<{ __typename?: 'Coin', name: string, id: string }>>> };
 
-export const AllpostDocument = gql`
-    query allpost {
-  allPosts {
-    title
-    views
-  }
+export const FieldsBaseFragmentDoc = gql`
+    fragment fieldsBase on Coin {
+  name
+  id
 }
     `;
+export const CoinSearchDocument = gql`
+    query coinSearch($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: CoinFilter) {
+  allCoins(
+    page: $page
+    perPage: $perPage
+    sortField: $sortField
+    sortOrder: $sortOrder
+    filter: $filter
+  ) {
+    ...fieldsBase
+  }
+}
+    ${FieldsBaseFragmentDoc}`;
 
   @Injectable({
     providedIn: 'root'
   })
-  export class AllpostGQL extends Apollo.Query<AllpostQuery, AllpostQueryVariables> {
-    document = AllpostDocument;
+  export class CoinSearchGQL extends Apollo.Query<CoinSearchQuery, CoinSearchQueryVariables> {
+    document = CoinSearchDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);

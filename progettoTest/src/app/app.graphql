@@ -1,6 +1,10 @@
-query allpost{
-  allPosts {
-    title
-    views
+fragment fieldsBase on Coin{
+  name
+  id
+}
+
+query coinSearch($page: Int, $perPage: Int, $sortField:String, $sortOrder:String, $filter: CoinFilter){
+  allCoins(page: $page, perPage: $perPage, sortField:$sortField, sortOrder:$sortOrder, filter:$filter) {
+    ...fieldsBase
   }
 }
