@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "serverino": "json-graphql-server db.js",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "codegen": "graphql-codegen"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +52,8 @@
     "@graphql-codegen/typescript-operations": "2.1.2",
     "@graphql-codegen/typescript": "2.1.2",
     "@graphql-codegen/typescript-apollo-angular": "3.1.2",
-    "@graphql-codegen/introspection": "2.1.0"
+    "@graphql-codegen/introspection": "2.1.0",
+    "apollo-angular": "^2.6.0",
+    "@apollo/client": "^3.4.8"
   }
 }
