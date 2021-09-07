@@ -1,0 +1,10 @@
+{
+  "pathApp": "src/app",
+  "pathView": "src/app/main/views",
+  "pathStore": "src/app/root-store",
+  "pathService": "src/app/main/services",
+  "pathVo": "src/app/main/models/vo",
+  "filesStore": "../../../../tools/schematics/store/files/crud-store",
+  "filesModel": "../../../../tools/schematics/store/files/crud-model",
+  "filesService": "../../../../tools/schematics/store/files/crud-service"
+}
