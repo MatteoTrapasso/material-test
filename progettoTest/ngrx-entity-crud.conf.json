@@ -1,10 +1,42 @@
 {
-  "pathApp": "src/app",
-  "pathView": "src/app/main/views",
-  "pathStore": "src/app/root-store",
-  "pathService": "src/app/main/services",
-  "pathVo": "src/app/main/models/vo",
-  "filesStore": "../../../../tools/schematics/store/files/crud-store",
-  "filesModel": "../../../../tools/schematics/store/files/crud-model",
-  "filesService": "../../../../tools/schematics/store/files/crud-service"
+  "pathApp": {
+    "description": "",
+    "value": "src/app",
+    "active": "true"
+  },
+  "pathView": {
+    "description": "",
+    "value": "src/app/main/views",
+    "active": "true"
+  },
+  "pathStore": {
+    "description": "",
+    "value": "src/app/root-store",
+    "active": "true"
+  },
+  "pathService": {
+    "description": "",
+    "value": "src/app/main/services",
+    "active": "true"
+  },
+  "pathVo": {
+    "description": "",
+    "value": "src/app/main/models/vo",
+    "active": "true"
+  },
+  "filesStore": {
+    "description": "",
+    "value": "../../../../tools/schematics/store/files/crud-store",
+    "active": "true"
+  },
+  "filesModel": {
+    "description": "",
+    "value": "../../../../tools/schematics/store/files/crud-model",
+    "active": "true"
+  },
+  "filesService": {
+    "description": "",
+    "value": "../../../../tools/schematics/store/files/crud-service",
+    "active": "true"
+  }
 }
