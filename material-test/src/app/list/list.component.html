@@ -1,0 +1,4 @@
+<input placeholder="search..." (keyup)="onKeydown($event)">
+<app-list-item *ngFor="let user of users" [item]="user">
+  {{user.name}}
+</app-list-item>

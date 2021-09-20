@@ -1,0 +1,13 @@
+
+div{
+  display:inline-block;
+  margin:.5rem;
+}
+div:focus{
+  border:1px solid black;
+  outline: none;
+  background: red;
+  color: white;
+  font-weight: bold;
+  font-size: xxx-large;
+}
