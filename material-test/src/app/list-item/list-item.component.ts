@@ -9,12 +9,10 @@ import {Highlightable} from "@angular/cdk/a11y";
 export class ListItemComponent implements Highlightable {
   @Input() item: any;
   _isActive: boolean = false;
-  @HostBinding('class.active') get isActive() {
-    return this._isActive
-  }
 
-  constructor() {
-  }
+  @HostBinding('class.active') get isActive() {
+    return this._isActive;
+  };
 
   disabled: boolean;
 
@@ -26,5 +24,8 @@ export class ListItemComponent implements Highlightable {
     this._isActive = false
   }
 
+  getLabel() {
+    return this.item.name;
+  }
 
 }

@@ -1,4 +1,14 @@
-<input placeholder="search..." (keyup)="onKeydown($event)">
-<app-list-item *ngFor="let user of users" [item]="user">
-  {{user.name}}
-</app-list-item>
+<div class="form-group">
+  <input class="form-control" placeholder="Search..." (keyup)="onKeydown($event)" #input>
+</div>
+
+<section class="list-group">
+  <app-list-item *ngFor="let user of users | filter: 'name' : input.value; index as index"
+                 [item]="user" class="list-group-item">
+    {{user.name}}
+  </app-list-item>
+</section>
+
+<p style="margin-top: 1em" *ngIf="model">Model: {{model}}</p>
+
+<!-- [disabled]="index === 1" -->
